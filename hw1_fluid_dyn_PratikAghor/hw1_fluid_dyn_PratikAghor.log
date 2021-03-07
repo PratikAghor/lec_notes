@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.2)  7 MAR 2021 13:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.2)  7 MAR 2021 18:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -604,10 +604,10 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 <Figs/tetrahedron.png, id=36, 779.91376pt x 828.09375pt>
 File: Figs/tetrahedron.png Graphic file (type png)
 <use Figs/tetrahedron.png>
-Package pdftex.def Info: Figs/tetrahedron.png  used on input line 249.
+Package pdftex.def Info: Figs/tetrahedron.png  used on input line 251.
 (pdftex.def)             Requested size: 155.97998pt x 165.61581pt.
  [6]
-Overfull \hbox (4.65195pt too wide) in paragraph at lines 254--255
+Overfull \hbox (4.65195pt too wide) in paragraph at lines 256--257
 []\OT1/cmr/m/n/10 At the lead-ing or-der, sur-face forces ($\OML/cmm/m/it/10 O\
 OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Nl[]\OT1/cmr/m/n/10 )$) dom-i-nate the body 
 forces ($\OML/cmm/m/it/10 O\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^Nl[]\OT1/cmr/m/n
@@ -624,7 +624,7 @@ df>
 (epstopdf)                    size: 5171 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figs/across_streamlines-ep
 s-converted-to.pdf Figs/across_streamlines.eps>
-(epstopdf)             \includegraphics on input line 329.
+(epstopdf)             \includegraphics on input line 331.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -635,7 +635,7 @@ owed
 File: Figs/across_streamlines-eps-converted-to.pdf Graphic file (type pdf)
 <use Figs/across_streamlines-eps-converted-to.pdf>
 Package pdftex.def Info: Figs/across_streamlines-eps-converted-to.pdf  used on 
-input line 329.
+input line 331.
 (pdftex.def)             Requested size: 209.57928pt x 155.77924pt.
 [8 <./Figs/across_streamlines-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <Figs/shearflow_decomp.eps>
@@ -647,7 +647,7 @@ Package epstopdf Info: Source file: <Figs/shearflow_decomp.eps>
 (epstopdf)                    size: 4282 bytes
 (epstopdf)             Command: <repstopdf --outfile=Figs/shearflow_decomp-eps-
 converted-to.pdf Figs/shearflow_decomp.eps>
-(epstopdf)             \includegraphics on input line 398.
+(epstopdf)             \includegraphics on input line 400.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -658,10 +658,10 @@ ed
 File: Figs/shearflow_decomp-eps-converted-to.pdf Graphic file (type pdf)
 <use Figs/shearflow_decomp-eps-converted-to.pdf>
 Package pdftex.def Info: Figs/shearflow_decomp-eps-converted-to.pdf  used on in
-put line 398.
+put line 400.
 (pdftex.def)             Requested size: 395.87955pt x 111.61714pt.
 
-Overfull \hbox (50.87955pt too wide) in paragraph at lines 398--399
+Overfull \hbox (50.87955pt too wide) in paragraph at lines 400--401
  [][] 
  []
 
@@ -669,10 +669,10 @@ Overfull \hbox (50.87955pt too wide) in paragraph at lines 398--399
 <Figs/xy_c_streamlines.png, id=59, 462.528pt x 346.896pt>
 File: Figs/xy_c_streamlines.png Graphic file (type png)
 <use Figs/xy_c_streamlines.png>
-Package pdftex.def Info: Figs/xy_c_streamlines.png  used on input line 429.
+Package pdftex.def Info: Figs/xy_c_streamlines.png  used on input line 431.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 429--430
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 431--432
  [][] 
  []
 
@@ -681,30 +681,30 @@ s.png>] [12] [13] [14]
 <Figs/u_vs_y_diff_t.png, id=81, 462.528pt x 346.896pt>
 File: Figs/u_vs_y_diff_t.png Graphic file (type png)
 <use Figs/u_vs_y_diff_t.png>
-Package pdftex.def Info: Figs/u_vs_y_diff_t.png  used on input line 603.
+Package pdftex.def Info: Figs/u_vs_y_diff_t.png  used on input line 605.
 (pdftex.def)             Requested size: 370.02289pt x 277.51717pt.
 
-Overfull \hbox (25.02289pt too wide) in paragraph at lines 603--604
+Overfull \hbox (25.02289pt too wide) in paragraph at lines 605--606
  [][] 
  []
 
 [15]
-Overfull \hbox (5.78076pt too wide) detected at line 614
+Overfull \hbox (5.78076pt too wide) detected at line 616
 []
  []
 
 [16 <./Figs/u_vs_y_diff_t.png>]
-Overfull \hbox (70.10638pt too wide) detected at line 669
+Overfull \hbox (70.10638pt too wide) detected at line 671
 []
  []
 
 [17]
-Overfull \hbox (50.9765pt too wide) detected at line 680
+Overfull \hbox (50.9765pt too wide) detected at line 682
 []
  []
 
-[18] (./hw1_fluid_dyn_PratikAghor.bbl) [19] (./hw1_fluid_dyn_PratikAghor.aux) )
- 
+[18] [19] (./hw1_fluid_dyn_PratikAghor.bbl) [20]
+(./hw1_fluid_dyn_PratikAghor.aux) ) 
 Here is how much of TeX's memory you used:
  5301 strings out of 492982
  75985 string characters out of 6134897
@@ -712,32 +712,32 @@ Here is how much of TeX's memory you used:
  8773 multiletter control sequences out of 15000+600000
  16792 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,24n,40p,624b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-r12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msam10.pfb>
-Output written on hw1_fluid_dyn_PratikAghor.pdf (19 pages, 391485 bytes).
+ 42i,24n,40p,742b,311s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on hw1_fluid_dyn_PratikAghor.pdf (20 pages, 394359 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
- 117 compressed objects within 2 object streams
+ 174 PDF objects out of 1000 (max. 8388607)
+ 119 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

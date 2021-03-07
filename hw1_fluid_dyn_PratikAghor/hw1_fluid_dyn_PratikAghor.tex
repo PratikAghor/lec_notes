@@ -240,6 +240,8 @@ Assuming that bulk viscous effects are negligible $\lambda = 0 $ and $p_{t} = p$
 \end{equation}
 which must be supplemented by an equation of state $p \equiv p(\rho, T)$ in order to close the system. 
 
+\textbf{Physical Interpretation:}
+The two contributions to the term $\frac{\partial u_{i}\sigma_{ij}}{\partial x_{j}}$ are $\frac{\partial u_{i}\sigma_{ij}}{\partial x_{j}} = u_{i} \frac{\partial \sigma_{ij}}{\partial x_{j}} + \sigma_{ij}\frac{\partial u_{i}}{\partial x_{j}} $. The first term arises from the difference in stresses at the two faces of an infinitesimal cube in the fluid and hence contributes to the accelerations of the fluid parcel. This is why it shows up in the expression for the kinetic energy. The other term,  $\sigma_{ij}\frac{\partial u_{i}}{\partial x_{j}}$ arises from the gradient in velocity, which, as we know, contributes to the deformation of a fluid parcel. Hence it shows up in the internal energy equation. 
 %-------------------------------------------------------
 \section{Q $3$: $\tau_{i} = \sigma_{ij} n_{j}$}
 %-------------------------------------------------------
@@ -733,10 +735,33 @@ Solving Eqn.(\ref{eq:conserve_x_mom}), we obtain:
  \begin{split}
   & u = -\left(\frac{\rho g \sin{\theta}}{\mu_{l}} \right)  \frac{y^{2}}{2} + c_{1} y + c_{2},\\
  & u|_{y=0} = 0 \Rightarrow c_{2} = 0, \\
- & \mu_{l}\frac{\partial u}{\partial y}\bigg|_{y = h} = 0 \Rightarrow c_{1} = \frac{\rho g h \sin{\theta}}{\mu_{l}},\\
- & \boxed{ u(y) = \frac{\rho g h \sin{\theta}}{\mu_{l}} \left[hy - \frac{y^{2}}{2} \right]}.
+ & \mu_{l}\frac{\partial u}{\partial y}\bigg|_{y = h} = 0 \Rightarrow c_{1} = \frac{\rho g \sin{\theta}}{\mu_{l}},\\
+ & \boxed{ u(y) = \frac{\rho g \sin{\theta}}{\mu_{l}} \left[hy - \frac{y^{2}}{2} \right]}.
  \end{split}
 \end{align}
+
+The volume flow rate is given by
+\begin{align}
+ \begin{split}
+  q &= \int_{0}^{h} u(y) dy \\
+  &= \frac{\rho g \sin{\theta}}{\mu_{l}} \int_{0}^{h} hy - \frac{y^{2}}{2} dy \\
+  &=  \frac{\rho g \sin{\theta}}{\mu_{l}} \frac{h^{3}}{3}
+ \end{split}
+\end{align}
+
+Drag $D$ is given by ($b$ is the depth into the paper)
+\begin{align}
+ \begin{split}
+  D &= b\int_{0}^{L} \tau_{1} dx\\
+  &= b\int_{0}^{L} \sigma_{11} \cancelto{0}{n_{1}} + \sigma_{12} \cancelto{1}{n_{2}} dx \\
+  & = \int_{0}^{L} \sigma_{12} dx \\
+  & = b \mu_{l} \int_{0}^{L} \frac{d u}{d y}\bigg|_{y=0} dx \\
+  & = \mu_{l}Lb\frac{d u}{d y}\bigg|_{y=0} \\
+  & = \mu_{l}Lbh \frac{\rho g \sin{\theta}}{\mu_{l}} \\
+  & = (\rho g \sin{\theta}) Lbh.
+ \end{split}
+\end{align}
+
 %------------------------------------------------------
 \bibliographystyle{apalike}
 %\bibliographystyle{unsrt} % Use for unsorted references  
