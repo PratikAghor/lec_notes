@@ -227,7 +227,7 @@ Finally, writing $v = 1/\rho$, we obtain the material derivative for entropy.
  \begin{split}
   T \frac{Ds}{Dt} &= c_{p} \frac{DT}{Dt} - \frac{\beta T}{\rho}\frac{Dp_{t}}{Dt}\\
   & = \frac{D\hat{u}}{Dt} - \frac{p_{t}}{\rho^{2}}\frac{D\rho}{Dt}\\
-  & = \frac{\lambda \Delta^{2}}{\rho} + \Phi + \frac{1}{\rho} \frac{\partial }{\partial x_{j}}\left(\kappa \frac{\partial T}{\partial x_{j}} \right).
+  & = \Phi + \frac{1}{\rho} \frac{\partial }{\partial x_{j}}\left(\kappa \frac{\partial T}{\partial x_{j}} \right).
  \end{split}
 \end{align}
 %---------------
@@ -424,6 +424,13 @@ $\psi(x, y) = \alpha xy + g(y)$ for some unknown $g(y)$. Substituting this into 
 
 where $c$ is some arbitrary constant, which we set to $0$ without loss of generality, since the physically important fields such as velocities, depend on the gradients of $\psi$ and not $\psi$ itself. Therefore,
 $\boxed{\psi(x, y) =  \alpha xy}$.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.8]{Figs/xy_c_streamlines.png}
+    \caption{Stagnation-point flow streamlines for $\alpha = 1$.}
+    \label{fig:xy_c_streamlines}
+\end{figure}
+
 %---------------
 \subsection*{(b) Incompressible and Irrotational:}
 %---------------

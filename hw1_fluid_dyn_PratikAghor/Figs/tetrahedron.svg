@@ -104,9 +104,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4"
-     inkscape:cx="215.78885"
-     inkscape:cy="473.32068"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="-226.72782"
+     inkscape:cy="611.68926"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -123,7 +123,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -234,5 +234,49 @@
        id="path6253"
        inkscape:connector-curvature="0"
        transform="matrix(0.26458333,0,0,0.26458333,9.5360087,30.808597)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.63201714px;line-height:1.25;font-family:'TeX Gyre Pagella Math';-inkscape-font-specification:'TeX Gyre Pagella Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.77962577"
+       x="101.11871"
+       y="175.34169"
+       id="text5239-6-3"><tspan
+         sodipodi:role="line"
+         id="tspan5237-0-2"
+         x="101.11871"
+         y="175.34169"
+         style="stroke-width:0.77962577">O</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.63201714px;line-height:1.25;font-family:'TeX Gyre Pagella Math';-inkscape-font-specification:'TeX Gyre Pagella Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.77962577"
+       x="45.762753"
+       y="224.31139"
+       id="text5239-6-3-8"><tspan
+         sodipodi:role="line"
+         id="tspan5237-0-2-3"
+         x="45.762753"
+         y="224.31139"
+         style="stroke-width:0.77962577">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.63201714px;line-height:1.25;font-family:'TeX Gyre Pagella Math';-inkscape-font-specification:'TeX Gyre Pagella Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.77962577"
+       x="174.05212"
+       y="169.78839"
+       id="text5239-6-3-4"><tspan
+         sodipodi:role="line"
+         id="tspan5237-0-2-2"
+         x="174.05212"
+         y="169.78839"
+         style="stroke-width:0.77962577">B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.63201714px;line-height:1.25;font-family:'TeX Gyre Pagella Math';-inkscape-font-specification:'TeX Gyre Pagella Math';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.77962577"
+       x="87.991333"
+       y="79.985832"
+       id="text5239-6-3-1"><tspan
+         sodipodi:role="line"
+         id="tspan5237-0-2-7"
+         x="87.991333"
+         y="79.985832"
+         style="stroke-width:0.77962577">C</tspan></text>
   </g>
 </svg>
