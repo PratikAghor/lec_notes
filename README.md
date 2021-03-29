@@ -7,4 +7,4 @@
 
 2. Group theory and ring theory factoids from 'Abstract Algebra' by Dummit and Foote and `Groups and Symmetry' by M. A. Armstrong. 
 
-3. Basic Fluid Mechanics: Some problems on the fundamentals of fluid dynamics.
+3. Fluid Dynamics: Some problems on the fundamentals of fluid dynamics, Stokes flow (low Reynolds)
