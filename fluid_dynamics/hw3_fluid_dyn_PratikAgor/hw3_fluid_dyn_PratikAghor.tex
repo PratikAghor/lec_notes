@@ -31,23 +31,23 @@
 Thin-film equations are valid here.
 \begin{align}\label{eq:thin_film_dim}
  \begin{split}
-  & \frac{\partial p}{\partial x} = \mu\frac{\partial^{2}u}{\partial^{2}z},\\
+  & \frac{\partial p}{\partial x} = \mu\frac{\partial^{2}u}{\partial z^{2}},\\
   %
-  & \frac{\partial p}{\partial z} = \mu\frac{\partial^{2}w}{\partial^{2}z},\\
+  & \frac{\partial p}{\partial z} = \mu\frac{\partial^{2}w}{\partial z^{2}},\\
   %
   & \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0.
  \end{split}
 \end{align}
-Let $x\sim W, z \sim h_{0}, u \sim U, p \sim P$. The continuity equation demands $\frac{\partial u}{\partial x}$ and $\frac{\partial w}{\partial z}$ to balance each other, hence $U/L \sim W/h$, giving a scale for $w$ in terms of $U$, i.e., $W \sim Uh/L = U\epsilon$.\\
+Let $x\sim W, z \sim h_{0}, u \sim U, p \sim P$. The continuity equation demands $\frac{\partial u}{\partial x}$ and $\frac{\partial w}{\partial z}$ to balance each other, hence $U/L \sim \tilde{W}/h$, giving a scale for $w$ in terms of $U$, i.e., $\tilde{W} \sim Uh_{0}/L = U\epsilon$.\\
 The $x$-momentum equation gives $P$ in terms of $U$. 
-$\frac{P}{L} \sim \frac{\mu U}{h^{2}}$, giving $P \sim \frac{\mu U L}{h^{2}} = \mu U/(\epsilon^{2}L)$.
+$\frac{P}{W} \sim \frac{\mu U}{h_{0}^{2}}$, giving $P \sim \frac{\mu U W}{h_{0}^{2}} = \mu U/(\epsilon^{2}W)$.
 
 The dimensionless equations then become:
 \begin{align}\label{eq:thin_film_dimless}
  \begin{split}
-  & \frac{\partial p}{\partial x} =\frac{\partial^{2}u}{\partial^{2}z},\\
+  & \frac{\partial p}{\partial x} =\frac{\partial^{2}u}{\partial z^{2}},\\
   %
-  & \frac{\partial p}{\partial z} = \epsilon^{2}\frac{\partial^{2}w}{\partial^{2}z},\\
+  & \frac{\partial p}{\partial z} = \epsilon^{2}\frac{\partial^{2}w}{\partial z^{2}},\\
   %
   & \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0,
  \end{split}
@@ -107,24 +107,31 @@ Integrating twice wrt $x$, we get $p$.
   %
   & c_{2} = p_{0}\\
   % 
-  &c_{1} =-\frac{12}{h^{3}}\frac{dh}{dt} \frac{x}{2}\\
+  &c_{1} =-\frac{6}{h^{3}}\frac{dh}{dt} \\
   %
-  & p - p_{0} = \frac{6}{h^{3}}\frac{dh}{dt}(x^{2}-hx)
+  & p - p_{0} = \frac{6}{h^{3}}\frac{dh}{dt}(x^{2}-x)
  \end{split}
 \end{align}
-
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.5]{Figs/knife_gauge_p.png}
+    \caption{Gauge pressure $p-p_{0}$ in the film}
+    \label{fig:knife_gauge_p}
+\end{figure}
+%
 Force per unit length (into the paper) exerted by the fluid on the knife is 
 
 \begin{align}\label{eq:thin_film_force}
  \begin{split}
-  & f_{1} = \int_{0}^{W} (p - p_{0}) dx, \\
-  & f_{1} = \frac{6}{h^{3}}\frac{dh}{dt} \int_{0}^{W}(x^{2}-hx) dx\\
-  & f_{1} = \frac{6}{h^{3}}\frac{dh}{dt} \left[\frac{x^{3}}{3} - \frac{hx^{2}}{2}\right]_{0}^{W}\\
-  & f_{1} = -\frac{W^{3}}{h^{3}}\frac{dh}{dt}
+  & f_{1} = \int_{0}^{1} (p - p_{0}) dx, \\
+  & f_{1} = \frac{6}{h^{3}}\frac{dh}{dt} \int_{0}^{1}(x^{2}-x) dx\\
+  & f_{1} = \frac{6}{h^{3}}\frac{dh}{dt} \left[\frac{x^{3}}{3} - \frac{x^{2}}{2}\right]_{0}^{1}\\
+  & f_{1} = -\frac{1}{h^{3}}\frac{dh}{dt}
  \end{split}
 \end{align}
 
-Therefore, the force (per unit length into the plane of paper) needed to pull the knife upward is $f = -f_{1} = \frac{W^{3}}{h^{3}}\frac{dh}{dt}$, which is huge if $h/W = \epsilon$ is small.
+Therefore, the force (per unit length into the plane of paper) needed to pull the knife upward is $f = -f_{1} = \frac{1}{h^{3}}\frac{dh}{dt}$, which is huge if dimensionless $h \sim \epsilon$ is small.
 
 %----------------------------------------------
 \section{Q $2$:  Static shape of a pendant droplet with uniform surface tension and gravity:}
@@ -331,7 +338,7 @@ Therefore, we get,
 \end{equation}
 
 Solving 
-$c_{1} + c_{2}/2 = B\sin{\alpha}/6$ and Eqn.(\ref{eq:pendant_conserve_V}) simultaneously, we obtain: $c_{1} =  \frac{24V_{0} + B\sin{\alpha}}{2}$ and $c_{2} = \frac{48 V_{0} - 4B\sin{\alpha}}{3}$.  
+$c_{1}/2 + c_{2} = B\sin{\alpha}/6$ and Eqn.(\ref{eq:pendant_conserve_V}) simultaneously, we obtain: $c_{1} =  \frac{-24V_{0} + B\sin{\alpha}}{2}$ and $c_{2} = \frac{72 V_{0} - B\sin{\alpha}}{12}$.  
 
 %----------------------------------------------
 \section{Q $3$: Linear stability of a liquid film with non-uniform surface tension and destabilizing gravity. }
