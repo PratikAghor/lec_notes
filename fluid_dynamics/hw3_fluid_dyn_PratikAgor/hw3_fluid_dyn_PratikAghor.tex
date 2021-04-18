@@ -40,7 +40,7 @@ Thin-film equations are valid here.
   & \frac{\partial u}{\partial x} + \frac{\partial w}{\partial z} = 0.
  \end{split}
 \end{align}
-Let $x\sim W, z \sim h_{0}, u \sim U, p \sim P$. The continuity equation demands $\frac{\partial u}{\partial x}$ and $\frac{\partial w}{\partial z}$ to balance each other, hence $U/L \sim \tilde{W}/h$, giving a scale for $w$ in terms of $U$, i.e., $\tilde{W} \sim Uh_{0}/L = U\epsilon$.\\
+Let $x\sim W, z \sim h_{0}, u \sim U, p \sim P$. The continuity equation demands $\frac{\partial u}{\partial x}$ and $\frac{\partial w}{\partial z}$ to balance each other, hence $U/W \sim \tilde{W}/h$, giving a scale for $w$ in terms of $U$, i.e., $\tilde{W} \sim Uh_{0}/W = U\epsilon$.\\
 The $x$-momentum equation gives $P$ in terms of $U$. 
 $\frac{P}{W} \sim \frac{\mu U}{h_{0}^{2}}$, giving $P \sim \frac{\mu U W}{h_{0}^{2}} = \mu U/(\epsilon^{2}W)$.
 
@@ -424,7 +424,7 @@ As before, integrating the $z$-momentum equation at the leading order is just th
 \begin{equation}\label{eq:marangoni_p}
  p = p_{0} + G(h-z) - C^{-1}(1 + \epsilon^{2}\gamma_{1})h_{xx}.
 \end{equation}
-Let us define $\pi = p - p_{0}$ to be the gauge pressure. Therefore, $\pi = G(h-z) - C^{-1}h_{xx}$.\\
+Let us define $\pi = p - p_{0}$ to be the gauge pressure. Therefore, $\pi = G(h-z) -  C^{-1}(1 + \epsilon^{2}\gamma_{1})h_{xx}$.\\
 Substituting in the $x$-momentum equation and integrating twice wrt $z$, we get:
 \begin{align}\label{eq:marangoni_u}
  \begin{split}
