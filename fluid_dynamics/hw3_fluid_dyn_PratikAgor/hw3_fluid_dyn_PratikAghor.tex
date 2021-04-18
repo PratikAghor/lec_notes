@@ -8,7 +8,7 @@
 \usepackage{subcaption}
 \usepackage{cancel}
 \usepackage{float}
-
+\usepackage{hyperref}
 \DeclareMathOperator{\sech}{sech}
 %---------------------------------------------------------
 \author{Pratik Aghor}
@@ -18,6 +18,8 @@
 \begin{document}
 
 \maketitle
+Note: All the codes used for plotting are available \href{https://github.com/PratikAghor/lec_notes/tree/master/fluid_dynamics/hw3_fluid_dyn_PratikAgor/codes                                  
+}{here}.
 %----------------------------------------------
 \section{Q $1$: Adhesive force in a ‘squeeze film’:}
 %----------------------------------------------
@@ -338,8 +340,28 @@ Therefore, we get,
 \end{equation}
 
 Solving 
-$c_{1}/2 + c_{2} = B\sin{\alpha}/6$ and Eqn.(\ref{eq:pendant_conserve_V}) simultaneously, we obtain: $c_{1} =  \frac{-24V_{0} + B\sin{\alpha}}{2}$ and $c_{2} = \frac{72 V_{0} - B\sin{\alpha}}{12}$.  
-
+$c_{1}/2 + c_{2} = B\sin{\alpha}/6$ and Eqn.(\ref{eq:pendant_conserve_V}) simultaneously, we obtain: $c_{1} =  \frac{-24V_{0} + B\sin{\alpha}}{2}$ and $c_{2} = \frac{72 V_{0} - B\sin{\alpha}}{12}$
+%.  
+\begin{figure}[ht]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include first image
+  \includegraphics[scale=0.35]
+  {Figs/pendant_droplet_plot_h_fix_B_vary_V0.png}  
+  \caption{}
+  \label{fig:vary_V0}
+\end{subfigure}
+\begin{subfigure}{.5\textwidth}
+  \centering
+  % include second image
+  \includegraphics[scale = 0.35]
+  {Figs/pendant_droplet_plot_h_fix_V0_vary_B.png}  
+  \caption{}
+  \label{fig:vary_B}
+\end{subfigure}
+\caption{$h(x)$ vs $x$ for $\alpha = \pi/4$. (a) Fix $B=1$, vary $V_{0}$ and (b) Fix $V_{0}=1$, vary $B$.}
+\label{fig:fig}
+\end{figure}
 %----------------------------------------------
 \section{Q $3$: Linear stability of a liquid film with non-uniform surface tension and destabilizing gravity. }
 %----------------------------------------------
@@ -539,8 +561,7 @@ The incompressibility condition is then automatically satisfied. Eliminating pre
   & \boxed{\nabla^{4}\psi = 0}.
  \end{split}
 \end{align}
-
-
+%
 The dimensional equations and BCs, in terms of the streamfunction $\psi$ can be written as:
 \begin{align}\label{eq:marangoni_convect_gov_eqns_dim}
  \begin{split}
@@ -566,7 +587,7 @@ The BCs become:
   & \partial_{z}T = -Q_{0} \quad \textrm{at } z = H.
  \end{split}
 \end{align}
-
+%
 Scaling $x\sim H, y\sim H, u \sim \kappa/H, T\sim Q_{0}H$, we obtain scalings for time and streamfunction. The scaling for time is obtained from the energy equation, where $\partial_{t}T$ must balance $\kappa \nabla^{2}T$, yielding $t \sim H^{2}/\kappa$. From the definition of the streamfunction, we get $\psi \sim  \kappa$. Using these scales, we obtain the dimensionless equations:
 \begin{align}
 \label{eq:marangoni_convect_gov_eqns_dimless}
@@ -593,7 +614,7 @@ The BCs become:
 \end{align}
 All the quantities in the above BCs are now dimensionless. If $\psi = \textrm{ const}$, $\nabla^{4}\psi$ is definitely zero and $\boldsymbol{u}_{b}=\boldsymbol{0}$ is the base state velocity. Without loss of generality, we take $\boxed{\psi_{b} = 0}$. 
 We assume a steady conduction base state for the temperature with no $x$-variation. $\partial_{zz}T_{b} = 0$, giving $T_{b} = Az + B$. With $T_{b}= T_{0}/(Q_{0}H) \quad \textrm{at } z = 0$, we get $B =T_{0}/(Q_{0}H)$ and $\partial_{z}T = -1 \quad \textrm{at } z = 1$ yields $A=-1$. Therefore, the steady state base temperature profile is $\boxed{T_{b} = T_{0}/(Q_{0}H) - z}$.  
-
+%
 Perturbing about the base state and substituting $\psi \equiv \psi_{b} + \psi$ and $T = T_{b} + \theta$ (noting that ${T_{b}}_{z} = -1$), into the governing equations and BCs,
 \begin{align}\label{eq:perturbation_eqns}
  \begin{split}
@@ -616,7 +637,7 @@ The BCs become:
   & \boxed{ \psi_{x} = \theta_{z} = 0, \quad \psi_{zz} = -\tilde{\Lambda} \partial_{x}\theta} \quad \textrm{at } z = 1. 
  \end{split}
 \end{align}
-
+%
 Substituting
 \begin{equation}
  \begin{bmatrix}
@@ -627,7 +648,7 @@ Substituting
      \hat{\psi}
  \end{bmatrix}e^{ikx}e^{\sigma t} + \textrm{c.c.}, 
 \end{equation}
-
+%
 we obtain a linear eigenvalue problem in $z$.
 \begin{align}
  \begin{split}
@@ -641,9 +662,33 @@ we obtain a linear eigenvalue problem in $z$.
   & \boxed{ [D^{4} - 2k^{2}D^{2} + k^{4}][D^{2}-k^{2}]\hat{\theta} = \sigma [D^{4} - 2k^{2}D^{2} + k^{4}] \hat{\theta} },
  \end{split}
 \end{align}
-
+%
 where $D \equiv d_{z}$. 
 
+Substitute 
+\begin{equation}
+ \begin{bmatrix}
+    \hat{\theta} \\
+     \hat{\psi}
+ \end{bmatrix} = \begin{bmatrix}
+     \theta_{0}\\
+     \psi_{0}     
+ \end{bmatrix}e^{imz}. 
+\end{equation}
+We first solve the $\hat{\psi}$ equation, since it is independent. 
+Get $(k^{2}+m^{2})^{2} = 0$, degenerate solutions. Therefore, basis would be formed by $\{e^{kx}, xe^{kx}, e^{-kx}, xe^{-kx}\}$. General solution: $\hat{\psi} = c_{1}e^{kx} + c_{2} xe^{kx} + c_{3} e^{-kx}+ c_{4} xe^{-kx}$. 
+
+BCs on $\hat{\psi}$: 
+\begin{align}
+ \begin{split}
+  \frac{d \hat{\psi}}{dz} = \hat{\psi} = 0 \quad \textrm{at } z = 0,\\
+  %
+  \hat{\psi} = 0 \quad \textrm{at } z = 1,\\
+  %
+  \frac{d^{2} \hat{\psi}}{dz^{2}} = -\tilde{\Lambda} i k \hat{\theta} \quad \textrm{at } z = 1. 
+ \end{split}
+\end{align}
+ Can find $\hat{\psi}$ in terms of $\hat{\theta}$ from here and substitute into the $\hat{\theta}$ equation to obtain the dispersion relation $\sigma \equiv \sigma(k)$. 
 %----------------------------------------------
 \section{Q $5$: A lubrication approximation for Darcy flow in semi-saturated porous media: }
 %----------------------------------------------
