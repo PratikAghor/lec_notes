@@ -28,6 +28,13 @@
 %----------------------------------------------
 \section{$2d$ Laminar Jet:}
 %----------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.3]{Figs/laminar_jet.png}
+    \caption{Laminar Jet Sketch}
+    \label{fig:laminar_jet}
+\end{figure}
+
 Governing equations are the $2d$ Navier-Stokes equations plus the continuity equation. 
 %
 \begin{align}\label{eq:NS_dim}
@@ -191,6 +198,13 @@ Now, we can obtain $u(x, Y)$ as follows:
   & \boxed{u =\frac{1}{2}\left(\frac{3M^{2}}{4x}\right)^{1/3}\sech^{2}{(\eta/2)} }.
  \end{split}
 \end{align}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.8]{Figs/laminar_jet_profile.png}
+    \caption{Numerical plotting of $\sech^{2}(y)$, assume $x = 1$.}
+    \label{fig:laminar_jet}
+\end{figure}
+
 %----------------------------------------------
 \section{Quasi-Geostrophic (QG) Vorticity Equation, Ekman Boundary Layer (BL) in the $\beta$-Plane:}
 %----------------------------------------------
@@ -198,6 +212,13 @@ From our discussion of Ekman boundary layers that the leading-order interior geo
 %----------------------------------------------
 \subsection{The $\beta$-Plane:}
 %----------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.3]{Figs/beta_plane.png}
+    \caption{The $\beta$-plane approximation}
+    \label{fig:beta_plane}
+\end{figure}
+
 The ``Coriolis parameter'' $f$ is given by (twice) the component of the planetary angular velocity in the local $z$-direction. We measure $\theta$ from the equator, so $\theta=0$ corresponds to the equator while at the North pole, $\theta=\pi/2$. 
 \begin{align}\label{eq:beta-plane-approx}
  \begin{split}
@@ -216,6 +237,13 @@ where $f_{0} = 2\Omega \sin{\theta_{0}}, \beta_{0} = \frac{2\Omega \cos{\theta_{
 %----------------------------------------------
 \subsection{Governing Equations:}
 %----------------------------------------------
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.5]{Figs/ekman_layers.png}
+    \caption{Sketch of Ekman layers at the top and bottom. The flow in the interior is geostrophic.}
+    \label{fig:ekman_layers}
+\end{figure}
+
 \begin{align}\label{eq:rotating-NS}
  \begin{split}
   & \pd{u}{t} + u \pd{u}{x} + v \pd{u}{y} + w\pd{u}{z} - fv = -\frac{1}{\rho} \pd{\pi}{x} + \nu\left[\pdd{u}{x} + \pdd{u}{y} + \pdd{u}{z}\right],\\
@@ -319,7 +347,11 @@ Here $\boxed{\omega_{z0} = \pd{v_{0}}{x} - \pd{u_{0}}{y}}$ is the leading-order 
 corresponds to $f_{0} \equiv 2\Omega \sin{\theta_{0}}$, i.e. the $z$-vorticity fluid particles acquire simply because they are rotating with the Earth. Thus, in terms of vorticity dynamics, the right-hand-side of Eqn.(\ref{eq:qg_vorticity}) is a vortex-stretching term; more specifically, stretching of planetary vortex tubes by the difference in vertical velocities at the ends of these vertically-oriented tubes. (The term involving $\beta$ physically represents the advection of planetary vortex tubes.)''\\
 %
 To close Eqn.(\ref{eq:qg_vorticity}), we integrate it across the basin. Noting that $u_{0}, v_{0}$(and hence, $\omega_{z0}$) as well as $w_{0}$ are independent of $z$, we get:
-
+\begin{equation}\label{eq:qg-half-done}
+ \boxed{\frac{D\omega_{z0}}{Dt} + \beta v_{0} = \pd{\omega_{z0}}{t} + u_{0}\pd{\omega_{z0}}{x} + v_{0}\pd{\omega_{z0}}{y} + w_{0}\pd{\omega_{z0}}{z} + \beta v_{0} = w_{1}\big|_{z=0} - w_{1}\big|_{z=-1} }.
+\end{equation}
+%
+To find the RHS, we must do matched asymptotics. 
 %----------------------------------------------
 \subsection{``Inner'' Solution at the Upper Free Surface:}
 %----------------------------------------------
@@ -473,18 +505,18 @@ where $\underline{u}_{G} = u_{0}\hat{e}_{x} + v_{0}\hat{e}_{y}$ is the interior 
 The continuity equation at the next order ($O(1)$ formally, if we multiply through by $\epsilon$, then $O(\epsilon)$) becomes:
 \begin{align}
  \begin{split}
-  \pd{\hat{w}_{1}}{\hat{z}} &= -\left(\pd{\hat{u}_{0}}{x} + \pd{\hat{v}_{0}}{y} \right)\\
+  \pd{\hat{w}_{1}}{\hat{z}} &= -r\left(\pd{\hat{u}_{0}}{x} + \pd{\hat{v}_{0}}{y} \right)\\
   %
-  &= -\left(\cancel{\pd{u_{0}}{x} + \pd{v_{0}}{y} }\right) - \frac{1}{\sqrt{2}}\pd{\tau}{x} \exp{\left(\frac{\hat{z}}{\sqrt{2}}\right)}\left[\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} + \sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)} \right]\\
+  &= -r\left(\cancel{\pd{u_{0}}{x} + \pd{v_{0}}{y} }\right) - \frac{r}{\sqrt{2}}\pd{\tau}{x} \exp{\left(\frac{\hat{z}}{\sqrt{2}}\right)}\left[\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} + \sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)} \right]\\
   %
-  &-\frac{1}{\sqrt{2}}\pd{\tau}{y} \exp{\left(\frac{\hat{z}}{\sqrt{2}}\right)} \left[\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)} - \cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} \right]\\
+  &-\frac{r}{\sqrt{2}}\pd{\tau}{y} \exp{\left(\frac{\hat{z}}{\sqrt{2}}\right)} \left[\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)} - \cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} \right]\\
  \end{split}
 \end{align}
 %
 We need to integrate this from $\hat{z} = 0$ to $\hat{z} = \hat{z}$ to obtain $\hat{w}_{1}\equiv \hat{w}_{1}(\hat{z})$. It is best to go back to complex representation and realize that $\exp{\left(\frac{z}{\sqrt{2}}\right)}\left[\cos{\left(\frac{z}{\sqrt{2}} \right)} + \sin{\left(\frac{z}{\sqrt{2}} \right)} \right] = \mathbf{Re}\left\{\frac{1-i}{\sqrt{2}}\exp{\left(\frac{(1+i)}{\sqrt{2}}z\right)} \right\} $ and $\exp{\left(\frac{z}{\sqrt{2}}\right)} \left[\sin{\left(\frac{z}{\sqrt{2}} \right)} - \cos{\left(\frac{z}{\sqrt{2}} \right)} \right] = \mathbf{Im}\left\{\frac{1-i}{\sqrt{2}}\exp{\left(\frac{(1+i)}{\sqrt{2}}z\right)} \right\}$.
 
 In the notes, we are given: 
-\begin{align}
+\begin{align}\label{eq:given_integration}
  \begin{split}
    \int_{0}^{\hat{z}} e^{\frac{1+i}{\sqrt{2}} s} ds &= \frac{1}{\sqrt{2}} \left[ -1 + e^{\hat{z}/\sqrt{2}} \left(\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} + \sin{\left(\frac{\hat{z}}{\sqrt{2}}\right)} \right) \right]\\
    %
@@ -498,28 +530,153 @@ In the notes, we are given:
 
 \begin{align}
  \begin{split}
-  \int_{0}^{\hat{z} }\pd{\hat{w}_{1}}{\hat{s}} d\hat{s} &= - \left(\pd{\tau}{x}\right) \mathbf{Re}\int_{0}^{\hat{z}} \left\{\frac{1-i}{\sqrt{2}}\exp{\left(\frac{(1+i)}{\sqrt{2}}s\right)} \right\} ds \\
+  \int_{0}^{\hat{z} }\pd{\hat{w}_{1}}{\hat{s}} d\hat{s} &= -r \left(\pd{\tau}{x}\right) \mathbf{Re}\int_{0}^{\hat{z}} \left\{\frac{1-i}{\sqrt{2}}\exp{\left(\frac{(1+i)}{\sqrt{2}}s\right)} \right\} ds \\
   %
-  &- \left(\pd{\tau}{y}\right)\mathbf{Im}\int_{0}^{\hat{z}} \left\{\frac{1-i}{\sqrt{2}}\exp{\left(\frac{(1+i)}{\sqrt{2}}s\right)} \right\} ds, \\
+  &- r\left(\pd{\tau}{y}\right)\mathbf{Im}\int_{0}^{\hat{z}} \left\{\frac{1-i}{\sqrt{2}}\exp{\left(\frac{(1+i)}{\sqrt{2}}s\right)} \right\} ds, \\
   %
-  \hat{w}_{1}(\hat{z}) - 0 &= - \left(\pd{\tau}{x}\right)\left[ e^{\hat{z}/\sqrt{2}} \sin{\left(\frac{\hat{z}}{\sqrt{2}}\right)}  \right]\\
+  \hat{w}_{1}(\hat{z}) - 0 &= - r\left(\pd{\tau}{x}\right)\left[ e^{\hat{z}/\sqrt{2}} \sin{\left(\frac{\hat{z}}{\sqrt{2}}\right)}  \right]\\
   %
-  &-\left(\pd{\tau}{y}\right)\left[ 1 - e^{\hat{z}/\sqrt{2}} \cos{\left(\frac{\hat{z}}{\sqrt{2}}\right)}  \right]
+  &-r\left(\pd{\tau}{y}\right)\left[ 1 - e^{\hat{z}/\sqrt{2}} \cos{\left(\frac{\hat{z}}{\sqrt{2}}\right)}  \right]
  \end{split}
 \end{align}
 
-Now, to get the value $\boxed{w_{1}|_{z=0} =\lim_{\hat{z} \rightarrow -\infty}\hat{w}_{1} = - \pd{\tau}{y} = \hat{e}_{z}\cdot(\nabla \times \tau) }$.
+Now, to get the value $\boxed{w_{1}|_{z=0} =\lim_{\hat{z} \rightarrow -\infty}\hat{w}_{1} = - r\pd{\tau}{y} = r\left[\hat{e}_{z}\cdot(\nabla \times \tau) \right]}$.
 %----------------------------------------------
-\subsection{``Inner'' Solution at the Bottom Surface:}
+\subsection{``Inner'' Solution at the Bottom:}
 %----------------------------------------------
 The analysis is exactly same until Eqn.(\ref{eq:bl-complex-hom-gen-soln}). However, in this case, when matching, we will have to take the limit $\hat{z}\rightarrow \infty$, hence $\boxed{A = 0}$. This gives:
 %----------------------------------------------
 \subsubsection{Homogeneous Solution:}
 %----------------------------------------------
 \begin{equation}\label{eq:bl-complex-hom-bottom}
- \mathcal{U}_{H} = B e^{-\frac{(1+i)}{\sqrt{2}}z}.
+ \mathcal{U}_{H} = B e^{-\frac{(1+i)}{\sqrt{2}}\hat{z}}.
 \end{equation}
-The boundary conditions are all homogeneous here. 
+%----------------------------------------------
+\subsubsection{Inhomogeneous Solution:}
+%----------------------------------------------
+The inhomogeneous solution is exactly the same as before.
+%----------------------------------------------
+\subsubsection{Applying No-slip and Matching:}
+%----------------------------------------------
+Writing $B = B_{r} + i B_{r}$ and equating real and imaginary parts with $\hat{u}_{0} + i \hat{v}_{0}$, we obtain:
+\begin{align}
+ \begin{split}
+  \mathcal{U}_{H} &= \left[B_{r}\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} + B_{i}\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)}\right] \exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)} \\
+  %
+  &+ i \left[B_{i}\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} - B_{r}\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)} \right] \exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)}\\
+  %
+  \hat{u}_{0} &= \left[B_{r}\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} + B_{i}\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)}\right] \exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)} - \pd{\hat{\pi}_{0}}{y}\\
+  %
+  \hat{v}_{0} &= \left[B_{i}\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} - B_{r}\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)} \right] \exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)} + \pd{\hat{\pi}_{0}}{x}.
+ \end{split}
+\end{align}
+Using no slip BC $\hat{u}_{0} = \hat{v}_{0} = 0$ at $\hat{z} = 0$, we get $B_{r} = \pd{\hat{\pi}_{0}}{y}$ and $B_{i} = -\pd{\hat{\pi}_{0}}{x}$.\\
+%
+Now, matching:
+\begin{itemize}
+ \item Inner(Outer): 
+ \begin{equation}
+  \lim_{z\rightarrow -1} u_{0} = -\pd{\pi_{0}}{y}
+ \end{equation}
+ \begin{equation}
+  \lim_{z\rightarrow -1} v_{0} = \pd{\pi_{0}}{x}
+ \end{equation}
+ %
+ \item Outer(Inner):
+  \begin{equation}
+  \lim_{\hat{z}\rightarrow \infty} \hat{u}_{0} = -\pd{\hat{\pi}_{0}}{y}
+ \end{equation}
+ \begin{equation}
+  \lim_{\hat{z}\rightarrow \infty} \hat{v}_{0} = \pd{\hat{\pi}_{0}}{x}
+ \end{equation}
+\end{itemize}
+Matching yields 
+\begin{align}
+ & \pd{\hat{\pi}_{0}}{y} = \pd{\pi_{0}}{y} = -u_{0},\\
+ %
+ & \pd{\hat{\pi}_{0}}{x} = \pd{\pi_{0}}{x} = v_{0}.\\
+\end{align}
+%
+Therefore, the BL velocity fields can be written as:
+%
+\begin{align}
+ & \hat{u}_{0} = u_{0} - \left[u_{0}\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} + v_{0}\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)}\right] \exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)} ,\\
+ %
+ & \hat{v}_{0} = v_{0} - \left[v_{0}\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} - u_{0}\sin{\left(\frac{\hat{z}}{\sqrt{2}} \right)} \right] \exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)} .\\
+ %
+ & \underline{u} = \underline{u}_{G} -  \underline{u}_{E}
+\end{align}
+Again, to obtain $\hat{w}_{1}$, we go to the next order and use the continuity equation. 
+\begin{align}
+ \begin{split}
+  \pd{\hat{w}_{1}}{\hat{z}} &= -r\left(\pd{\hat{u}_{0}}{x} + \pd{\hat{v}_{0}}{y} \right)\\
+  %
+  &=-r\left(\cancel{\pd{u_{0}}{x} + \pd{v_{0}}{y} }\right) -r\left(\cancel{\pd{u_{0}}{x} + \pd{v_{0}}{y} }\right)\cos{\left(\frac{\hat{z}}{\sqrt{2}}\right)}\exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)}\\
+  &+r\left(\pd{v_{0}}{x} - \pd{u_{0}}{y} \right)\sin{\left(\frac{\hat{z}}{\sqrt{2}}\right)}\exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)}\\
+  %
+  \pd{\hat{w}_{1}}{\hat{z}}  &= r\omega_{z0}\sin{\left(\frac{\hat{z}}{\sqrt{2}}\right)}\exp{\left(-\frac{\hat{z}}{\sqrt{2}} \right)}\\
+  & = -r\mathbf{Im}\left\{e^{-\left(\frac{1+i}{\sqrt{2}}\right)\hat{z}} \right\}
+ \end{split}
+\end{align}
+Integrating to obtain $\hat{w}_{1}$, and replacing $s$ with $-s$ in Eqn.(\ref{eq:given_integration}),
+\begin{align}
+ \begin{split}
+ & \hat{w}_{1}(\hat{z}) - 0= -r\omega_{z0}\mathbf{Im} \int_{0}^{\hat{z}}\left\{e^{-\left(\frac{1+i}{\sqrt{2}}\right)s}  \right\}ds\\
+ %
+ & \hat{w}_{1}(\hat{z}) = r\omega_{z0}\mathbf{Im} \int_{0}^{-\hat{z}}\left\{e^{\left(\frac{1+i}{\sqrt{2}}\right)\tilde{s}}  \right\}d\tilde{s}\\
+ %
+ & \hat{w}_{1}(\hat{z}) = \frac{r\omega_{z0}}{\sqrt{2}}\left[ 1 - e^{-\hat{z}/\sqrt{2}}\left(\cos{\left(\frac{\hat{z}}{\sqrt{2}} \right)} + \sin{\left(\frac{\hat{z}}{\sqrt{2}}\right)} \right) \right]
+ \end{split}
+\end{align}
+Again to obtain $\boxed{w_{1}\big|_{z=-1} = \lim_{\hat{z}\rightarrow \infty}\hat{w}_{1} = \frac{r\omega_{z0}}{\sqrt{2}} }$.
+%----------------------------------------------
+\subsection{Quasi-Geostrophic Vorticity Equation:}
+%----------------------------------------------
+substituting into Eqn.(\ref{eq:qg-half-done}), we get the quasi-geostrophic vorticity equation:
+\begin{equation}\label{eq:qg-vort-eqn}
+ \boxed{\frac{D\omega_{z0}}{Dt} + \beta v_{0} = \pd{\omega_{z0}}{t} + u_{0}\pd{\omega_{z0}}{x} + v_{0}\pd{\omega_{z0}}{y} + w_{0}\pd{\omega_{z0}}{z} + \beta v_{0} = r \left[\hat{e}_{z}\cdot\nabla \times \tau\right] -  \frac{r\omega_{z0}}{\sqrt{2}}  }.
+\end{equation}
+%
+Introducing geostrophic streamfunction $\psi$, 
+\begin{align}
+ \begin{split}
+  & u_{0} = -\psi_{y}\\
+  & v_{0} = \psi_{x},
+ \end{split}
+\end{align}
+
+\begin{equation}\label{eq:qg-vort-eqn-2}
+ \boxed{\left[\pd{}{t} - \pd{\psi}{y}\pd{}{x} + \pd{\psi}{x}\pd{}{y}\right](\nabla^{2}\psi + \beta y) = r \left[\hat{e}_{z}\cdot\nabla \times \tau\right] -  \frac{r\nabla^{2}\psi}{\sqrt{2}}  }.
+\end{equation}
+%
+This equation governs the quasi-2D dynamics of large-scale flows in the ocean without the need for resolving the Ekman boundary layers (through which the forcing and friction are transmitted!); it is of fundamental importance in numerical simulations of regional-scale ocean and atmospheric dynamics.
+%----------------------------------------------
+\section{Tea-Cup Physics:}
+%----------------------------------------------
+Imagine that the tea (i.e. the fluid) in a cup has been set into near rigid-body rotation following stirring with a spoon. The key question is: once the spoon is removed, roughly how long will it take for the tea to come to rest, or “spin-down”?
+%----------------------------------------------
+\subsection{Na\"ive Estimate of the Spin-Down Time:}
+%----------------------------------------------
+\textbf{Q1}. First, obtain an estimate of the required time scale for spin down by considering spin-down in an infinitely long circular cylinder. See \cite{acheson1991elementary}, pp. $45$. Without carrying out the analysis given in Acheson, justify the formula for the time scale based on the superficially related problem of diffusion of an irrotational line vortex – a problem we solved earlier in the course. Plug in numerical values to obtain a quantitative estimate of the spin-down time, and show that it is far too long to agree with casual observation of the process!\\
+%
+\textbf{A}. Looking at the viscous decay of the an irrotational line vortex, the na\"ive estimate would just be the diffusion time-scale $a^{2}/\nu$ where $a$ is the radius of the vortex (or the infinitely long cup!). Plugging in typical values $\nu = 10^{-2} \textrm{cm}^{2}\textrm{s}^{-1}$ and $a = 5 cm$, we get time for spin-down to be $2500$ seconds - way too large for casual observation of the process, which is around $15$ s! The discrepancy arises, as suggested in \cite{acheson1991elementary}, because we have neglected the crucial physics of Ekman layers by assuming an infinite cylinder. We must take into account the bottom of the cup. \\ 
+%
+\textbf{A2}.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale = 0.5]{Figs/tea_cup.png}
+    \caption{Compression of vortex tubes under secondary flow set-up due to Ekman pumping in a tea-cup.}
+    \label{fig:tea_cup}
+\end{figure}
+First, we explain why the fluid will be pumped out of the Ekman BLs in the spin-down problem of a tea-cup. In the inviscid interior, the hydrodynamic pressure gradient exactly balances the centrifugal acceleration. This same pressure is impressed into the BL. However, inside the BL, due to no-slip BCs at the bottom, velocities drop dramatically and the hydrodynamic pressure gradient wins over the centrifugal forces. Hence, the flow is `towards' the axis in the bottom Ekman BL. A secondary flow is set-up as shown in Fig.(\ref{fig:tea_cup}) due to continuity. The fluid is pumped out of both BLs at the top and bottom. Under this planar-extension-type flow, an initial thin, long vortex tube is compressed to a fat, short one as shown indicated in Fig.(\ref{fig:tea_cup}). Since the flow in the interior is inviscid, angular momentum is conserved. To compensate for the compressed vortex tubes the flow must slow down in order to conserve angular momentum. Spin-down happens for this reason. \\
+%
+Now, considering Eqn.(\ref{eq:qg-vort-eqn-2}), neglecting the $\beta$ plane effects as well as the advective nonlinearity, we attempt to find the time-scale of spin-down. 
+\begin{equation}
+ \pd{\omega_{z0}}{t} = - \frac{r}{\sqrt{2}}\omega_{z0} 
+\end{equation}
+
+$\omega_{z0} = \omega_{z0}(0)e^{-t/T}$, with $T = \frac{\sqrt{2}}{r} = \frac{\sqrt{2}\epsilon}{\sqrt{E}}$. Dimensionally, $T = \frac{\sqrt{2}\epsilon}{\Omega\sqrt{E}}$. Writing $E = \nu/f_{0}D^{2} = \frac{\nu}{2\Omega D^{2}}$ and $\epsilon = U_{0}/Lf_{0} \approx 1/2$. Giving, $T = \frac{\sqrt{2}\cdot (1/2)}{\Omega \cdot \frac{\sqrt{\nu}}{\sqrt{2\Omega}D}}  = \frac{D}{\sqrt{\Omega \nu}}$. For typical values, $D = 4$ cm, $\Omega = 2\pi$, $\nu = 10^{-2} \textrm{cm}^{2}\textrm{s}^{-1}$, we get $T \approx 20$s, a good approximation that matches with day-to-day experience!
+
 %------------------------------------------------------
 \bibliographystyle{apalike}
 %\bibliographystyle{unsrt} % Use for unsorted references  
