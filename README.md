@@ -8,3 +8,5 @@
 2. Group theory and ring theory factoids from 'Abstract Algebra' by Dummit and Foote and `Groups and Symmetry' by M. A. Armstrong. 
 
 3. Fluid Dynamics: Some problems on the fundamentals of fluid dynamics, Stokes flow (low Reynolds)
+
+4. Pattern formation: Homework problems from pattern formation course
