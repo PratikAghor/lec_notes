@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.2)  17 OCT 2021 18:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2020.7.2)  17 OCT 2021 18:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -861,11 +861,11 @@ ot changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 495.
  ) 
 Here is how much of TeX's memory you used:
- 8859 strings out of 492982
- 131117 string characters out of 6134897
+ 8861 strings out of 492982
+ 131138 string characters out of 6134897
  233052 words of memory out of 5000000
- 12252 multiletter control sequences out of 15000+600000
- 16745 words of font info for 64 fonts, out of 8000000 for 9000
+ 12253 multiletter control sequences out of 15000+600000
+ 17091 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,25n,40p,871b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
@@ -884,13 +884,14 @@ b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
 share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on hw1_pattern_formation_PratikAghor.pdf (11 pages, 508814 bytes
+ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/latxfont/line10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on hw1_pattern_formation_PratikAghor.pdf (11 pages, 517367 bytes
 ).
 PDF statistics:
- 243 PDF objects out of 1000 (max. 8388607)
- 190 compressed objects within 2 object streams
+ 247 PDF objects out of 1000 (max. 8388607)
+ 193 compressed objects within 2 object streams
  63 named destinations out of 1000 (max. 500000)
  86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
