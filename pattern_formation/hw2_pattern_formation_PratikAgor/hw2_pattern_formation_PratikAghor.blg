@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: hw2_pattern_formation_PratikAghor.aux
+The style file: apalike.bst
+Database file #1: bib/references.bib
+You've used 1 entry,
+            1935 wiz_defined-function locations,
+            477 strings with 3840 characters,
+and the built_in function-call counts, 303 in all, are:
+= -- 26
+> -- 7
+< -- 2
++ -- 2
+- -- 2
+* -- 20
+:= -- 59
+add.period$ -- 3
+call.type$ -- 1
+change.case$ -- 5
+chr.to.int$ -- 1
+cite$ -- 1
+duplicate$ -- 14
+empty$ -- 24
+format.name$ -- 3
+if$ -- 57
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 2
+newline$ -- 8
+num.names$ -- 3
+pop$ -- 7
+preamble$ -- 1
+purify$ -- 6
+quote$ -- 0
+skip$ -- 12
+stack$ -- 0
+substring$ -- 12
+swap$ -- 2
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 4
+warning$ -- 0
+while$ -- 2
+width$ -- 0
+write$ -- 15

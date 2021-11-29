@@ -1,0 +1,536 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{listings}
+\usepackage[pdftex]{graphicx}
+\usepackage{amssymb}
+\usepackage{subcaption}
+\usepackage{cancel}
+\usepackage{float}
+\usepackage{hyperref}
+\DeclareMathOperator{\sech}{sech}
+
+\newcommand{\pd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+%
+\newcommand{\pdd}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
+%
+\newcommand{\pddmixed}[3]{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
+
+\newcommand{\grad}[1]{\nabla{#1}}
+\newcommand{\deldot}[1]{\nabla \cdot{#1}}
+\newcommand{\lap}[1]{\nabla^{2}{#1}}
+
+\newcommand{\bsym}[1]{\boldsymbol{#1}}
+
+\newcommand{\hp}{h^{+}}
+\newcommand{\hm}{h^{-}}
+%---------------------------------------------------------
+\author{Pratik Aghor}
+\title{HW $\# 2$: Weakly Nonlinear Analysis of Porous Medium Convection}
+\date{\today}  % Toggle commenting to test
+
+\begin{document}
+
+\maketitle
+%----------------------------------------
+\section{Governing Equations, Problem Formulation:}
+%----------------------------------------
+Use Darcy's law as the momentum equation. 
+\begin{align}
+    \deldot{\bsym{u}} &= 0, \\
+    %
+    \bsym{u} &= \grad{P} - Ra T \hat{e}_{z},\\
+    %
+    \partial_{t}T + \bsym{u}.\grad{T} &= \lap{T}.
+\end{align}
+Since $2D$, incompressible, use streamfunction $\psi$ such that (s.t.) $u = \partial_{z}\psi, w = -\partial_{x}\psi $. The governing equations then become (derived in class):
+\begin{align}
+ \begin{split}
+  \lap{\psi} = - Ra \partial_{x} T, \\
+  %
+  \partial_{t}T + \partial_{z}\psi \partial_{x}T - \partial_{x}\psi \partial_{z}T  &= \lap{T}.
+ \end{split}
+\end{align}
+Summary of linear stability analysis done in class and exercise $6.13$ in \cite{drazin2002introduction}:
+\begin{itemize}
+ \item Basic state $\psi_{B} = 0, T_{B} (z) = 1-z$.
+ %
+ \item  Linear stability $T(x, z, t) = (1-z) + \theta(x, z, t), \psi(x, z, t) = 0 + \psi(x, z, t)$. 
+ %
+ \item \begin{align} \label{eq:full_nl_eqns}
+        \begin{split}
+            \partial_{t} \theta + \partial_{z}\psi \partial_{x}\theta - \partial_{x}\psi \partial_{z}\theta &= -\partial_{x}\psi + \lap{\theta}, \\
+            %
+            \lap{\psi} &= - Ra \partial_{x} \theta, \\
+            %
+            \theta = \psi = 0 \textrm{ at } & z = 0, 1  \textrm{ and periodic in } x \textrm{ with } L_{x}. 
+        \end{split}
+       \end{align}
+ \item Linearized above equations, used normal mode ansatz:\\
+ \begin{equation}
+    \begin{bmatrix}
+              \theta \\
+              \psi 
+    \end{bmatrix} = 
+    \begin{bmatrix}
+      \hat{\theta}(z) \\
+      \hat{\psi}(z) 
+    \end{bmatrix} e^{\sigma t}e^{i k x} + c.c.
+    \end{equation}
+ %
+ \item Obtained $\sigma = \frac{k^{2}Ra}{k^{2}+n^{2}\pi^{2}} - (k^{2}+n^{2}\pi^{2})$.
+ \item Deduced $Ra_{c} = 4\pi^{2}$ and $k_{c} = \pi, n = 1$.
+\end{itemize}
+%----------------------------------------
+\section{Weakly Nonlinear Analysis:}
+%----------------------------------------
+\begin{itemize}
+ \item Assume near-criticality: ($Ra-Ra_{c}/Ra_{c} \ll 1$).
+ \item In the following analysis $n = 1, k_{c} = \pi$ and $Ra_{c} = 4\pi^{2}$.
+ \item Inspired by linear stability, introduce slow time $T = \epsilon^{2}t$ and $X = \epsilon x$, where $\epsilon = \left((Ra-Ra_{c})/\tilde{R}\right)^{1/2}$.
+ \item Here $\tilde{R} \sim O(1)$ as $\epsilon \rightarrow 0$. We define $p = Ra_{c} \tilde{R}$. 
+ \item Write fast time and fast space variables as $\tau = t, \chi = x$. 
+ \item Immediately ignore variations with fast time, because we are interested in dynamics on long times $T$.
+ \item The value of $\epsilon \sim (Ra-Ra_{c})^{1/2}$ is deduced from dominant balance arguments (to be explained).
+\end{itemize}
+%
+Chain rule immediately implies:
+\begin{align}\label{eq:chain_rule}
+ \begin{split}
+  \partial_{x} & = \partial_{\chi} + \epsilon \partial_{X}, \\
+  %
+  \partial^{2}_{x} & = \partial^{2}_{\chi} + 2 \epsilon \partial_{\chi} \partial_{X} + \epsilon^{2} \partial^{2}_{X}, \\
+  %
+  \partial_{t} & = \cancelto{0}{\partial_{\tau}} + \epsilon \partial_{T}. \\
+ \end{split}
+\end{align}
+%
+Writing full nonlinear equations Eqns.(\ref{eq:full_nl_eqns}) in terms of slow time ($T$) and slow space ($X$) variables, we obtain:
+\begin{align}
+ \begin{split}
+  \pdd{\theta}{\chi} & + 2\epsilon \pddmixed{\theta}{\chi}{X} + \epsilon^{2}\pdd{\theta}{X} + \pdd{\theta}{z} - \pd{\psi}{\chi} - \epsilon \pd{\psi}{X} \\
+  %
+  & = \epsilon^{2} \pd{\theta}{T} + \pd{\psi}{z}\left(\pd{\theta}{\chi} + \epsilon \pd{\theta}{X} \right) - \left( \pd{\psi}{\chi} + \epsilon \pd{\psi}{X}\right)\pd{\theta}{z},\\
+  %
+  \pdd{\psi}{\chi} & + 2\epsilon\pddmixed{\psi}{\chi}{X} + \epsilon^{2} \pdd{\psi}{X} + \pdd{\psi}{z} + Ra_{c} \pd{\theta}{\chi} + Ra_{c}\epsilon\pd{\theta}{X} \\
+  %
+  &= -\epsilon^{2} p \left(\pd{\theta}{\chi} + \epsilon \pd{\theta}{X} \right).
+ \end{split}
+\end{align}
+%
+where $p$ is a parameter that we introduced earlier to unfold bifurcations, if needed. 
+%
+We now perform the standard multiple scales analysis, by substituting 
+\begin{align}
+ \begin{split}
+  \theta &= \epsilon \theta_{1} + \epsilon^{2} \theta_{2} + \epsilon^{3} \theta_{3} + \hdots,  \\ 
+  \psi &= \epsilon \psi_{1} + \epsilon^{2} \psi_{2} + \epsilon^{3} \psi_{3} + \hdots, 
+ \end{split}
+\end{align}
+ and collect terms at different orders of $\epsilon$:
+%
+%----------------------------------------
+\subsection{$O(\epsilon)$:}
+%----------------------------------------
+%
+\begin{align}
+ \begin{split}
+  \lap{\theta_{1}} - \pd{\psi_{1}}{\chi} &= 0, \\
+  %
+  Ra_{c} \pd{\theta_{1}}{\chi} + \lap{\psi_{1}} &=0.
+ \end{split}
+\end{align}
+Or, writing it in matrix form,
+\begin{equation}\label{eq:order_1}
+ \underbrace{\begin{bmatrix}
+  \lap{} & -\partial_{\chi} \\
+  %
+  Ra_{c}\partial_{\chi} & \lap{}
+ \end{bmatrix}}_{\mathcal{L}}
+ \underbrace{\begin{bmatrix}
+  \theta_{1} \\
+ \psi_{1}
+ \end{bmatrix}}_{w_{1}}
+ = \begin{bmatrix}
+  0 \\
+  0
+ \end{bmatrix},
+\end{equation}
+and $\theta_{1} = \psi_{1} = 0$ at $z=0, 1$. 
+Since we have assumed near criticality, we look for solutions of the form
+\begin{equation}
+ \begin{bmatrix}
+  \theta_{1} \\
+ \psi_{1}
+ \end{bmatrix} =
+ %
+ \begin{bmatrix}
+  \hat{\theta}_{1}(z) \\
+ \hat{\psi}_{1}(z)
+ \end{bmatrix}
+ e^{i\pi x} + \textrm{c.c.,}
+\end{equation}
+where c.c. stands for complex conjugate. 
+Substituting into Eqn.(\ref{eq:order_1}), we get
+\begin{align}\label{eq:order_1_intermediate}
+ \begin{split}
+  & \frac{d^{2}\hat{\theta}_{1}}{dz^{2}} - k_{c}^{2}\hat{\theta}_{1} - i k_{c}\hat{\theta}_{1} = 0\\
+  %
+  & \frac{d^{2}\hat{\psi}_{1}}{dz^{2}} - k_{c}^{2}\hat{\psi}_{1} + i Ra_{c} k_{c}\hat{\theta}_{1} = 0
+ \end{split}
+\end{align}
+%
+Furthermore, due to homogeneous Dirichlet B.C.s, we can guess the form $\hat{\theta}_{1}(z), \hat{\theta}_{1}(z) \sim \sin{n\pi z} $, but again, we use $n=1$ due to near-criticality assumption. Showing this dependence on sine modes is straightforward. For example, assume $\hat{F}(z) = F e^{i\pi z} + F^{*} e^{-i \pi z}$. 
+\begin{align}
+ \begin{split}
+  \hat{F}(z) &= F e^{i\pi z} + F^{*} e^{-i \pi z} \\
+  %
+  &= (f+ig)(\cos{\pi z} + i \sin{\pi z}) + (f-ig)(\cos{\pi z} - i \sin{\pi z})\\
+  %
+  &= 2f \cos{\pi z} - 2g \sin{\pi z}
+ \end{split}
+\end{align}
+%
+Using BCs, $\hat{F}(z=0) = 0 \Rightarrow f = 0$ and $\hat{F}(z=1) = 0$ is trivially satisfied. Therefore, we get $\hat{F}(z) = \beta \sin{\pi z}$, with $\beta = 2g$.
+%
+Therefore, we assume $\hat{\theta_{1}} = \alpha \sin{\pi z}$ and $\hat{\psi_{1}} = \beta \sin{\pi z}$. Therefore, our ansatz now takes the form
+\begin{equation}\label{eq:order_1_ansatz}
+ \begin{bmatrix}
+  \theta_{1} \\
+ \psi_{1}
+ \end{bmatrix} =
+ %
+ A
+ \begin{bmatrix}
+  \alpha \\
+ \beta
+ \end{bmatrix}
+ \sin{(\pi z)} e^{i\pi \chi} + \textrm{c.c.,}
+\end{equation}
+%
+Substituting Eqn.(\ref{eq:order_1_ansatz}) into Eqn.(\ref{eq:order_1_intermediate}), get:
+\begin{align}
+ \begin{split}
+  & -\pi^{2} \alpha - \pi^{2} \alpha - i \pi \beta = 0 \\
+  & -\pi^{2} \beta - \pi^{2} \beta + 4 i \pi^{3} \alpha = 0. 
+ \end{split}
+\end{align}
+%
+Both equations give the same relationship between $\alpha$ and $\beta$, i.e., $\beta = 2\pi i \alpha$. 
+%
+We choose $\alpha = 1$ so $\beta = 2\pi i$ (normalization). Multiplying by slow spatially and temporally varying amplitude $A(X, T)$, get
+\begin{equation}\label{eq:order_1_soln}
+ \begin{bmatrix}
+  \theta_{1} \\
+ \psi_{1}
+ \end{bmatrix} =
+ %
+ A(X, T)
+ \begin{bmatrix}
+  1 \\
+ 2\pi i
+ \end{bmatrix}
+ \sin{(\pi z)} e^{i\pi \chi} + \textrm{c.c.,}
+\end{equation}
+i.e.
+\begin{align}
+&\boxed{ \theta_{1} = \sin{(\pi z)}\left[A e^{i \pi \chi} + A^{*} e^{-i \pi \chi} \right],} \\
+%
+&\boxed{ \psi_{1} =  2 \pi \sin{(\pi z)}\left[i A e^{i \pi \chi} - i A^{*} e^{-i \pi \chi} \right] .}
+\end{align}
+%----------------------------------------
+\subsection{$O(\epsilon^{2})$:}
+%----------------------------------------
+\begin{align}
+ \begin{split}
+  & \lap{\theta_{2}} - \pd{\psi_{2}}{\chi} \\
+  %
+  & = -2 \pddmixed{\theta_{1}}{\chi}{X} + \pd{\psi_{1}}{X} + \pd{\psi_{1}}{z}\pd{\theta_{1}}{\chi} - \pd{\psi_{1}}{\chi}\pd{\theta_{1}}{z}, \\
+  %
+  & Ra_{c} \pd{\theta_{2}}{\chi} + \lap{\psi_{2}} \\
+  %
+  &=-2\pddmixed{\psi_{1}}{\chi}{X} - Ra_{c}\pd{\theta_{1}}{X}.
+ \end{split}
+\end{align}
+Or, writing it in matrix form,
+\begin{equation}
+ \underbrace{\begin{bmatrix}
+  \lap{} & -\partial_{\chi} \\
+  %
+  Ra_{c}\partial_{\chi} & \lap{}
+ \end{bmatrix}}_{\mathcal{L}}
+ \underbrace{\begin{bmatrix}
+  \theta_{2} \\
+ \psi_{2}
+ \end{bmatrix}}_{w_{2}}
+ = \underbrace{\begin{bmatrix}
+   -2 \pddmixed{\theta_{1}}{\chi}{X} + \pd{\psi_{1}}{X} + \pd{\psi_{1}}{z}\pd{\theta_{1}}{\chi} - \pd{\psi_{1}}{\chi}\pd{\theta_{1}}{z} \\
+  %
+  -2\pddmixed{\psi_{1}}{\chi}{X} - Ra_{c}\pd{\theta_{1}}{X}
+ \end{bmatrix}}_{f_{2}},
+\end{equation}
+and $\theta_{2} = \psi_{2} = 0$ at $z=0, 1$. 
+%
+Let us start by evaluating $f_{2}$ on the RHS. 
+\begin{align}
+ \begin{split}
+  & -2 \pddmixed{\theta_{1}}{\chi}{X} + \pd{\psi_{1}}{X} + \pd{\psi_{1}}{z}\pd{\theta_{1}}{\chi} - \pd{\psi_{1}}{\chi}\pd{\theta_{1}}{z} \\
+  %
+  & = -\cancel{2\sin{(\pi z)}\left[\pd{A}{X} (i\pi) e^{i \pi \chi} + \textrm{c.c.} \right]} + \cancel{2 \pi \sin{(\pi z)}\left[i \pd{A}{X} e^{i \pi \chi} + \textrm{c.c.} \right]}\\
+  %
+  & + \left\{2 \pi^{2} \cos{(\pi z)}\left[i A e^{i \pi \chi} - i A^{*} e^{-i \pi \chi} \right]\right\} \left\{\sin{(\pi z)}\left[i \pi A e^{i \pi \chi} - i \pi A^{*} e^{-i \pi \chi} \right] \right\}\\
+  %
+  & - \left\{2 \pi \sin{(\pi z)}\left[- \pi A e^{i \pi \chi} - \pi A^{*}  e^{-i \pi \chi} \right] \right\} \left\{\pi \cos{(\pi z)}\left[A e^{i \pi \chi} + A^{*} e^{-i \pi \chi} \right]  \right\}\\
+  %
+  & = 2\pi^{3}\sin{(\pi z)}\cos{(\pi z)} \left\{- \left[A e^{i \pi \chi} -  A^{*} e^{-i \pi \chi} \right]^{2} + \left[A e^{i \pi \chi} + A^{*}  e^{-i \pi \chi} \right]^{2}  \right\}\\
+  %
+  & = 2\pi^{3}\sin{(\pi z)}\cos{(\pi z)} (4 |A|^{2})\\
+  %
+  & = 8 \pi^{3} |A|^{2} \sin{(\pi z)}\cos{(\pi z)}
+ \end{split}
+\end{align}
+%
+\begin{align}
+ \begin{split}
+  & -2\pddmixed{\psi_{1}}{\chi}{X} - Ra_{c}\pd{\theta_{1}}{X} \\
+  %
+  & = \cancel{-4\pi  \sin{(\pi z)}\left[-\pi \pd{A}{X} e^{i \pi \chi} + \textrm{c.c.} \right]}
+  - \cancel{4\pi^{2} \sin{(\pi z)}\left[ \pd{A}{X} e^{i \pi \chi} + \textrm{c.c.} \right]}\\
+  %
+  & = 0.
+ \end{split}
+\end{align}
+%
+Therefore,
+\begin{equation}
+f_{2} = 
+ \begin{bmatrix}
+  4 \pi^{3} |A|^{2} \sin{(2 \pi z)} \\
+  %
+  0
+ \end{bmatrix},
+\end{equation}
+i.e.
+\begin{equation}\label{eq:order_2}
+ \underbrace{\begin{bmatrix}
+  \lap{} & -\partial_{\chi} \\
+  %
+  Ra_{c}\partial_{\chi} & \lap{}
+ \end{bmatrix}}_{\mathcal{L}}
+ \underbrace{\begin{bmatrix}
+  \theta_{2} \\
+ \psi_{2}
+ \end{bmatrix}}_{w_{2}}
+ = \underbrace{ \begin{bmatrix}
+  4 \pi^{3} |A|^{2} \sin{(2 \pi z)} \\
+  %
+  0
+ \end{bmatrix}
+}_{f_{2}},
+\end{equation}
+%
+To check for solvability of Eqn. (\ref{eq:order_2}), we must use the Fredholm alternative. To be able to use the Fredholm alternative, we must get our hands on the adjoint of the linear operator $\mathcal{L}$, denoted by $\mathcal{L}^{\dagger}$. We start by defining the adjoint operator as follows:
+\begin{equation}
+ < u, \mathcal{L} v> = < \mathcal{L}^{\dagger} u, v>.
+\end{equation}
+We define the inner product $<a, b> = \int_{0}^{1}\int_{0}^{L_{x}}a^{*}b dx dz$.\\
+Define $u = \begin{bmatrix}
+             \theta^{\dagger}\\
+             %
+             \psi^{\dagger}
+            \end{bmatrix}$
+and $v = \begin{bmatrix}
+             \theta_{2}\\
+             %
+             \psi_{2}
+            \end{bmatrix}$.
+%            
+Integrating the first derivative-terms by parts once and Laplacians twice, using periodic BCs in $\chi = x$ direction and Dirichlet BCs in $z$:
+\begin{align}\label{eq:Ldagger}
+ \begin{split}
+  < u, \mathcal{L} v> &= \int_{0}^{1}\int_{0}^{L_{x}} \left[(\theta^{\dagger})^{*}\lap{\theta_{2}} - (\theta^{\dagger})^{*}\pd{\psi_{2}}{\chi} \right] dx dz \\
+  %
+  & + \int_{0}^{1}\int_{0}^{L_{x}} \left[(\psi^{\dagger})^{*}Ra_{c}\pd{\theta_{2}}{\chi} + (\psi^{\dagger})^{*}\lap{\psi_{2}} \right] dx dz \\
+  %
+  & = \int_{0}^{1}\int_{0}^{L_{x}} \left[\lap{[(\theta^{\dagger})^{*}]}\theta_{2} + \psi_{2}\pd{(\theta^{\dagger})^{*}}{\chi} \right] dx dz \\
+  %
+  & + \int_{0}^{1}\int_{0}^{L_{x}} \left[-Ra_{c}\theta_{2}\pd{(\psi^{\dagger})^{*}}{\chi} + \psi_{2}\lap{[(\psi^{\dagger})^{*}]} \right] dx dz \\
+  %
+  & = < \mathcal{L}^{\dagger} u, v>.
+ \end{split}
+\end{align}
+%
+Reading off the adjoint operator 
+\begin{equation}
+ \boxed{ \mathcal{L}^{\dagger}
+ = \begin{bmatrix}
+  \lap{} & -Ra_{c}\partial_{\chi} \\
+  %
+  \partial_{\chi} & \lap{}
+ \end{bmatrix}}
+\end{equation}
+% 
+Fredholm alternative dictates that if $< f_{2}, v > = 0 \forall v$ in the null space of $ \mathcal{L}^{\dagger}$, i.e., $\forall v$ that satisfy $ \mathcal{L}^{\dagger} v = \bsym{0}$, then system $ \mathcal{L} w_{2} = f_{2}$ is solvable. It can be shown that the null space of $ \mathcal{L}^{\dagger}$ is spanned by 
+$v = \begin{bmatrix}
+-\psi_{1}\\                                                                                                                                                                                                                                                                                                                                  
+\theta_{1}                                                                                                                                                                                                                                                                                                                               \end{bmatrix}$. This can be verified easily by checking $\mathcal{L}^{\dagger} v = \bsym{0}$. Therefore, for solvability, we need to check if $<f_{2}, v> = 0$, i.e.,
+\begin{align}
+    \begin{split}
+     <f_{2}, v>  &= \int_{0}^{1}\int_{0}^{L_{x}} [4 \pi^{3} |A|^{2} \sin{(2 \pi z)}](-\psi_{1}) dx dz \\
+     %
+     &= 4 \pi^{3} |A|^{2} \int_{0}^{1}\int_{0}^{L_{x}} \sin{(2 \pi z)} \sin{(\pi z)} e^{i\pi x}dx dz\\
+     %
+     &=0,
+    \end{split}
+\end{align}
+since $e^{i\pi x}$ is periodic in $L_{x}$ and $\int_{0}^{1} \sin{(2 \pi z)} \sin{(\pi z)} dz = 0$. Therefore we verified that $<f_{2}, v> = 0$ and the system given by Eqn.(\ref{eq:order_2}) is solvable.
+%
+Let us find a particular solution of Eqn.(\ref{eq:order_2}) by the method of undetermined coefficients. Guess
+\begin{equation}
+ \begin{bmatrix}
+  \theta_{2p}\\
+  \psi_{2p}
+ \end{bmatrix}
+ = 
+ \begin{bmatrix}
+  \theta_{21}\\
+  \psi_{21}
+ \end{bmatrix} \sin{(2 \pi z)} + \begin{bmatrix}
+  \theta_{22}\\
+  \psi_{22}
+ \end{bmatrix} \cos{(2 \pi z)}
+\end{equation}
+Substituting into Eqns.(\ref{eq:order_2}), obtain:
+\begin{align}
+ \begin{split}
+ & -4\pi^{2}\theta_{21} \sin{(2 \pi z)} -  -4\pi^{2}\theta_{22} \cos{(2 \pi z)} + 0 =  4 \pi^{3} |A|^{2} \sin{(2 \pi z)}, \\
+ %
+ & 0 + (-4\pi^{2})\psi_{21} \sin{(2 \pi z)} - 4\pi^{2} \psi_{22} \cos{(2 \pi z)} = 0,
+ \end{split}
+\end{align}
+yeilding $\theta_{22} = -\pi |A|^{2}$ and $\psi_{21} = \theta_{22} = \psi_{22} = 0$. Note that we can always add 
+$c_{1}\begin{bmatrix}\theta_{1} \\                                                                                                    \psi_{1}                                                                                                    \end{bmatrix}$ to the particular solution and it will still satisfy Eqn. (\ref{eq:order_2}), since $c_{1}\begin{bmatrix}\theta_{1} \\                                                                                                    \psi_{1}                                                                                                    \end{bmatrix}$ satisfies the homogeneous part. We set $c_{1} = 0$ since it can always be included in the $O(\epsilon)$ solution as a higher order correction. 
+Therefore, we conclude,
+\begin{align}\label{eq:order_2_soln}
+ \begin{split}
+  & \boxed{\theta_{2} = -\pi |A|^{2} \sin{(2 \pi z)} },\\
+  %
+  &\boxed{\psi_{2} = 0}.
+ \end{split}
+\end{align}
+We still have not obtained the evolution equation for the amplitude $A(X, T)$. We will see that we must go to the $O(\epsilon^{3})$ to obtain the Ginzburg-Landau equation, since the slow time $T$ enters into the picture only at $O(\epsilon^{3})$.
+%----------------------------------------
+\subsection{$O(\epsilon^{3})$:}
+%----------------------------------------
+\begin{align}
+ \begin{split}
+  & \lap{\theta_{3}} - \pd{\psi_{3}}{\chi} \\
+  %
+  & = -2 \cancelto{0}{\pddmixed{\theta_{2}}{\chi}{X}} - \pdd{\theta_{1}}{X} + \cancelto{0}{\pd{\psi_{2}}{X}} + \pd{\theta_{1}}{T} + \pd{\psi_{1}}{z} \cancelto{0}{\pd{\theta_{2}}{\chi}}, \\
+  %
+  & + \cancelto{0}{\pd{\psi_{2}}{z}}\pd{\theta_{1}}{\chi} + \pd{\psi_{1}}{z}\pd{\theta_{1}}{X} - \pd{\psi_{1}}{\chi}\pd{\theta_{2}}{z} - \cancelto{0}{\pd{\psi_{2}}{\chi}}\pd{\theta_{1}}{z} - \pd{\psi_{1}}{X}\pd{\theta_{1}}{z}\\
+  %
+  & Ra_{c} \pd{\theta_{3}}{\chi} + \lap{\psi_{3}} \\
+  %
+  &=-2\cancelto{0}{\pddmixed{\psi_{2}}{\chi}{X}} - \pdd{\psi_{1}}{X} - Ra_{c}\pd{\theta_{2}}{X} - p \pd{\theta_{1}}{\chi}.
+ \end{split}
+\end{align}
+Also, from our analysis at $O(\epsilon^{2})$, we know $\pd{\psi_{1}}{z}\pd{\theta_{1}}{X} - \pd{\psi_{1}}{X}\pd{\theta_{1}}{z} = 0$, in ${f_{3}}_{1}$.
+Writing it in matrix form,
+\begin{equation}\label{eq:order_3}
+ \underbrace{\begin{bmatrix}
+  \lap{} & -\partial_{\chi} \\
+  %
+  Ra_{c}\partial_{\chi} & \lap{}
+ \end{bmatrix}}_{\mathcal{L}}
+ \underbrace{\begin{bmatrix}
+  \theta_{3} \\
+ \psi_{3}
+ \end{bmatrix}}_{w_{3}}
+ = \underbrace{\begin{bmatrix}
+  - \pdd{\theta_{1}}{X} + \pd{\theta_{1}}{T} - \pd{\psi_{1}}{\chi}\pd{\theta_{2}}{z} \\
+  %
+  - \pdd{\psi_{1}}{X} - Ra_{c}\pd{\theta_{2}}{X} - p \pd{\theta_{1}}{\chi}
+ \end{bmatrix}}_{f_{3}},
+\end{equation}
+and $\theta_{3} = \psi_{3} = 0$ at $z=0, 1$. 
+%
+Let us now start by evaluating $f_{3}$.
+\begin{align}
+ \begin{split}
+  {f_{3}}_{1} &= - \pdd{\theta_{1}}{X} + \pd{\theta_{1}}{T} - \pd{\psi_{1}}{\chi}\pd{\theta_{2}}{z} \\
+  %
+  &= -\sin{(\pi z)} \left[A_{XX} e^{i \pi \chi} + A^{*}_{XX} e^{-i \pi \chi} \right] + \sin{(\pi z)} \left[A_{T} e^{i \pi \chi} + A^{*}_{T} e^{-i \pi \chi} \right] \\
+  %
+  &- 4\pi^{4}\sin{(\pi z)}\cos{(2 \pi z)} |A|^{2}\left[A e^{i \pi \chi} + A^{*} e^{-i \pi \chi} \right]\\
+  %
+  {f_{3}}_{2} &= - \pdd{\psi_{1}}{X} - Ra_{c}\pd{\theta_{2}}{X} - p \pd{\theta_{1}}{\chi}\\
+  &= -2 \pi \sin{(\pi z)}\left[i A_{XX} e^{i \pi \chi} - i A^{*}_{XX} e^{-i \pi \chi} \right] - \cancelto{4\pi^{3}}{Ra_{c}\pi} \sin{(2 \pi z)} \left(A_{X}A^{*} + A^{*} A_{X}\right)\\
+  %
+  &-p\pi \sin{(\pi z)}\left[i A e^{i \pi \chi} - i A^{*} e^{-i \pi \chi} \right]
+ \end{split}
+\end{align}
+Again, since we have the same $\mathcal{L}$, the null space of $\mathcal{L}^{\dagger}$ would be spanned by $v = \begin{bmatrix}
+-\psi_{1}\\                                                                                                                                                                                                                                                                                                                                  
+\theta_{1}                                                                                                                                                                                                                                                                                                                               \end{bmatrix}$. From Fredholm's alternative, the solvability condition for Eqn.(\ref{eq:order_3}) is:
+
+\begin{align}
+ \begin{split}
+    0 &= <v, f_{3}> \\
+    0 &= \int_{0}^{1}\int_{0}^{L_{x}} \left\{ (-\psi_{1})^{*}{f_{3}}_{1} + (\theta_{1})^{*}{f_{3}}_{2} \right\} d\chi dz
+ \end{split}
+\end{align}
+Remember, $\psi_{1}, \theta_{1}$ are actually real ($(-\psi_{1})^{*} = (-\psi_{1})$ and $(\theta_{1})^{*} = (\theta_{1})$). Hence the solvability condition becomes $\int_{0}^{1}\int_{0}^{L_{x}} \left\{ (-\psi_{1}){f_{3}}_{1} + (\theta_{1}){f_{3}}_{2} \right\} d\chi dz = 0$. 
+%
+Let us begin by evaluating the integrand
+\begin{align}
+ \begin{split}
+  (-\psi_{1}){f_{3}}_{1} + (\theta_{1}){f_{3}}_{2} &= (\#_{1}) e^{i \pi \chi} + (\#^{*}_{1}) e^{-i \pi \chi} + (\#_{3}) +  (\#_{4}) e^{2 i \pi \chi} + (\#^{*}_{4}) e^{-2 i \pi \chi},
+ \end{split}
+\end{align}
+where 
+\begin{align}
+ \begin{split}
+  \#_{3} &= (A_{T} - A_{XX} - 4 \pi^{4} |A|^{2}A \cos{(2 \pi z)})\sin{(\pi z)} \cdot 2 \pi i A^{*} \sin{(\pi z)} \\
+  &+ (-2i A_{XX} - i p A)(\pi \sin{(\pi z)}) (A^{*} \sin{(\pi z)}) + \textrm{c. c.}.
+ \end{split}
+\end{align}
+All the other terms in the integrand vanish due to periodic BCs in $\chi$ upon integration. Therefore, solvability condition reduces to 
+\begin{align}
+ \begin{split}
+  0 &= \int_{0}^{1}\int_{0}^{L_{x}} \#_{3} d\chi dz \\
+  %
+  &= \int_{0}^{1}\int_{0}^{L_{x}}  \bigg(2 \pi i A^{*} A_{T} - 2 \pi i A^{*} A_{XX} - 8i \pi^{5} |A|^{3} \cos{(2 \pi z)} \\
+  %
+  &- 2 \pi i A^{*} A_{XX} - i p |A|^{2}\bigg)\sin^{2}{(\pi z)}  d\chi dz\\
+  %
+  &= \int_{0}^{1}\int_{0}^{L_{x}}  \bigg(2 \pi i A^{*} A_{T} - 4 \pi i A^{*} A_{XX} - 8i \pi^{5} |A|^{3} \cos{(2 \pi z)} \\
+  %
+  &- i p \pi |A|^{2}\bigg)\sin^{2}{(\pi z)}  d\chi dz \\
+  %
+  0 &= \cancel{L_{x}} \int_{0}^{1} \bigg(2 \pi i A^{*} A_{T} - 4 \pi i A^{*} A_{XX} - 8i \pi^{5} |A|^{3} \cos{(2 \pi z)} - i p \pi |A|^{2}\bigg)\sin^{2}{(\pi z)}  dz \\
+  %
+  0 &= 2 \pi i A^{*} A_{T}  - 4 \pi i A^{*} A_{XX}  - 8i \pi^{5}|A|^{3} \left(\frac{-1}{4}\right) - i p \pi |A|^{2}\\
+  %
+  0 &= A_{T} - 2 A_{XX} + 2 \pi^{4}|A|^{2}A - \frac{p}{2} A
+ \end{split}
+\end{align}
+Therefore, the Ginzburg-Landau equation for the evolution of the amplitude on slow time and spatial scales is:
+\begin{equation}
+ \boxed{A_{T} + 2\pi^{4} |A|^{2}A - 2 A_{XX} - \frac{p}{2} A = 0}. 
+\end{equation}
+
+%----------------------------------------
+\bibliographystyle{apalike}
+%\bibliographystyle{unsrt} % Use for unsorted references  
+%\bibliographystyle{plainnat} % use this to have URLs listed in References
+%\cleardoublepage
+%\bibliography{References/references} % Path to your References.bib file
+
+\bibliography{bib/references} % Path to your References.bib file
+ \if@openright\cleardoublepage\else\clearpage\fi
+ \cleardoublepage
+ \pagestyle{empty}
+%--------------------------------------------------------------------
+\end{document}
