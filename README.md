@@ -10,3 +10,5 @@
 3. Fluid Dynamics: Some problems on the fundamentals of fluid dynamics, Stokes flow (low Reynolds)
 
 4. Pattern formation: Homework problems from pattern formation course
+
+5. FreeFem++ lecture notes I contributed to that were used as tutorials in CIMPA 2015 IIT-Bombay summer school
